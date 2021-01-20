@@ -223,3 +223,5 @@ function am4themes_myTheme(target) {
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
+
+customElements.define("my-sankey", MySankey);

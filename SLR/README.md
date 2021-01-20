@@ -1,5 +1,13 @@
-# Phd-Project
+# SLR-FEATURES
 
-export default {
-  title: 'My Group/My Awesome Component',
-};
+```js script
+import "./sankey.js";
+import { html } from "lit-html";
+```
+
+<my-sankey header="from attribute"></my-sankey>
+
+
+```js script
+console.log("you got executed from an markdown file");
+```
