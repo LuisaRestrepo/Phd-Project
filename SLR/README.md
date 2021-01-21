@@ -1,6 +1,6 @@
-# SLR-FEATURES
+# SMS-FEATURES
 
-> Download and execute sankey.thml file
+> Download and execute sankey.html file
 
 ![demo1](demo/demo.gif)
 
