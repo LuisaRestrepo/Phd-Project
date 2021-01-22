@@ -193,7 +193,7 @@ chart.minNodeSize = 0.09; // tamaño links
 
 // make nodes draggable
 var nodeTemplate = chart.nodes.template;
-nodeTemplate.height = 15;
+nodeTemplate.height = 25;
 nodeTemplate.width = 30;
 nodeTemplate.stroke = am4core.color("#fff");
 nodeTemplate.strokeWidth = 2; // delineado nodes
