@@ -13,7 +13,7 @@
 // Themes begin
 am4core.useTheme(am4themes_material);
 
-am4core.useTheme(am4themes_animated);
+//am4core.useTheme(am4themes_animated);
 //am4core.useTheme(am4themes_kelly);
 //am4core.useTheme(am4themes_myTheme);
 // Themes end
@@ -158,31 +158,34 @@ chart.data = [
     { from: "T-Relaibility", to: "Maintenance-No", value: 1 }
 ];
 
-let hoverState = chart.links.template.states.create("hover");
-hoverState.properties.fillOpacity = 1;
+//let hoverState = chart.links.template.states.create("hover");
+//hoverState.properties.fillOpacity = 1;
 
-//var linkTemplate = chart.links.template;
+var linkTemplate = chart.links.template;
 //linkTemplate.fillOpacity = 0.5;
 
-
+chart.orientation = "vertical";
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
 chart.dataFields.value = "value";
 
 // for right-most label to fit
-chart.paddingRight = 140;
+chart.minNodeSize = 0.09; // tamaño links
+//chart.nodeAlign = "bottom";
+//chart.paddingLeft = 80;
+//chart.paddingRight = 80;
 
-chart.links.template.propertyFields.id = "id";
-chart.links.template.colorMode = "fromNode";
+//chart.links.template.propertyFields.id = "id";
+//chart.links.template.colorMode = "fromNode";
 //chart.links.template.colorMode = "toNode";
 //chart.links.template.colorMode = "solid";
 //chart.links.template.colorMode = "gradient";
-chart.links.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+//chart.links.template.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
 //chart.links.template.fill = am4core.color("#ED7D31");
-chart.links.template.fillOpacity = 0.2;
-linkTemplate.strokeOpacity = 0;
-chart.links.template.tooltipText = "";
+//chart.links.template.fillOpacity = 0.1;
+//linkTemplate.strokeOpacity = 0;
+//chart.links.template.tooltipText = "";
 
 //chart.links.template.colorMode = "toNode";
 //chart.links.template.fillOpacity = 0.5;
@@ -190,38 +193,37 @@ chart.links.template.tooltipText = "";
 
 // make nodes draggable
 var nodeTemplate = chart.nodes.template;
-//nodeTemplate.inert = true;
-//nodeTemplate.readerTitle = "Drag me!";
-nodeTemplate.showSystemTooltip = true;
-nodeTemplate.width = 8;
+nodeTemplate.height = 15;
+nodeTemplate.width = 30;
 nodeTemplate.stroke = am4core.color("#fff");
+nodeTemplate.strokeWidth = 2; // delineado nodes
+nodeTemplate.nameLabel.locationY = 0.5;
+nodeTemplate.nameLabel.label.fill = am4core.color("#fff");
+nodeTemplate.nameLabel.label.fontWeight = "bold";;
 
 // make nodes draggable
-var nodeTemplate = chart.nodes.template;
-nodeTemplate.readerTitle = "Click to show/hide or drag to rearrange";
-nodeTemplate.showSystemTooltip = true;
-nodeTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer
+// var nodeTemplate = chart.nodes.template;
+// nodeTemplate.readerTitle = "Click to show/hide or drag to rearrange";
+// nodeTemplate.showSystemTooltip = true;
+// nodeTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer
 
-function am4themes_myTheme(target) {
-    if (target instanceof am4core.ColorSet) {
-        target.list = [
-            am4core.color("#5B9BD5"),
-            am4core.color("#FFC000"),
-            am4core.color("#ED7D31"),
-            am4core.color("#70AD47"),
-            am4core.color("#7C7C7C")
-            //am4core.color("#4472C4"),
-            //am4core.color("#3BC2A3")
-        ];
-
-
-    }
+// function am4themes_myTheme(target) {
+//     if (target instanceof am4core.ColorSet) {
+//         target.list = [
+//             am4core.color("#5B9BD5"),
+//             am4core.color("#FFC000"),
+//             am4core.color("#ED7D31"),
+//             am4core.color("#70AD47"),
+//             am4core.color("#7C7C7C")
+//             //am4core.color("#4472C4"),
+//             //am4core.color("#3BC2A3")
+//         ];
 
 
-}
+//     }
+//}
+
 
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
-
-customElements.define("my-sankey", MySankey);
