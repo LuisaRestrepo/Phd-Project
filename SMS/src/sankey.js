@@ -11,11 +11,11 @@
  */
 
 // Themes begin
-am4core.useTheme(am4themes_material);
-
 //am4core.useTheme(am4themes_animated);
+//am4core.useTheme(am4themes_material);
 //am4core.useTheme(am4themes_kelly);
-//am4core.useTheme(am4themes_myTheme);
+am4core.useTheme(am4themes_myTheme);
+//am4core.useTheme(am4themes_frozen);
 // Themes end
 
 var chart = am4core.create("chartdiv", am4charts.SankeyDiagram);
@@ -25,14 +25,13 @@ chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
     { from: "PAPERS", to: "Planning-YES", value: 16 },
-    { from: "PAPERS", to: "Planning-NO", value: 0 },
     { from: "Planning-YES", to: "Dependent", value: 2 },
-    { from: "Planning-NO", to: "", value: 0 },
     { from: "Planning-YES", to: "Independent", value: 14 },
+    { from: "Planning-NO", to: "", value: 0 },
     { from: "Dependent", to: "Energy-efficiency", value: 1 },
     { from: "Dependent", to: "Scalability", value: 0 },
     { from: "Dependent", to: "Performance", value: 1 },
-    { from: "Dependent", to: "Maintainability", value: 0 },
+    { from: "Dependent", to: "Maintainability", value: 1 },
     { from: "Dependent", to: "Reliability", value: 1 },
     { from: "Dependent", to: "Others", value: 1 },
     { from: "Independent", to: "Energy-efficiency", value: 3 },
@@ -49,7 +48,7 @@ chart.data = [
     { from: "Scalability", to: "Mathematical specification", value: 0 },
     { from: "Performance", to: "System modeling (UML)", value: 4 },
     { from: "Performance", to: "Natural language", value: 9 },
-    { from: "Performance", to: "Mathematical specification", value: 0 },
+    { from: "Performance", to: "Mathematical specification", value: 2 },
     { from: "Maintainability", to: "System modeling (UML)", value: 3 },
     { from: "Maintainability", to: "Natural language", value: 4 },
     { from: "Maintainability", to: "Mathematical specification", value: 0 },
@@ -83,9 +82,9 @@ chart.data = [
     { from: "Physical", to: "Edge computing", value: 1 },
     { from: "Physical", to: "Layered", value: 1 },
     { from: "Physical", to: "N/A", value: 0 },
-    { from: "Cloud-service", to: "MAPE-K", value: 2 },
+    { from: "Cloud-service", to: "MAPE-K", value: 3 },
     { from: "Cloud-service", to: "Agents", value: 0 },
-    { from: "Cloud-service", to: "Others2", value: 3 },
+    { from: "Cloud-service", to: "Others2", value: 2 },
     { from: "Client-server", to: "MAPE-K", value: 2 },
     { from: "Client-server", to: "Agents", value: 0 },
     { from: "Client-server", to: "Others2", value: 0 },
@@ -93,22 +92,22 @@ chart.data = [
     { from: "Edge computing", to: "Agents", value: 0 },
     { from: "Edge computing", to: "Others2", value: 3 },
     { from: "Layered", to: "MAPE-K", value: 1 },
-    { from: "Layered", to: "Agents", value: 1 },
-    { from: "Layered", to: "Others2", value: 2 },
+    { from: "Layered", to: "Agents", value: 0 },
+    { from: "Layered", to: "Others2", value: 1 },
     { from: "N/A", to: "MAPE-K", value: 6 },
     { from: "N/A", to: "Agents", value: 1 },
-    { from: "N/A", to: "Others2", value: 3 },
+    { from: "N/A", to: "Others2", value: 1 },
     { from: "MAPE-K", to: "Web-application", value: 2 },
     { from: "MAPE-K", to: "Web-service", value: 3 },
     { from: "MAPE-K", to: "Component-based", value: 6 },
-    { from: "MAPE-K", to: "Other", value: 3 },
+    { from: "MAPE-K", to: "Other", value: 1 },
     { from: "Agents", to: "Web-application", value: 0 },
     { from: "Agents", to: "Web-service", value: 0 },
     { from: "Agents", to: "Component-based", value: 1 },
     { from: "Agents", to: "Other", value: 0 },
     { from: "Others2", to: "Web-application", value: 0 },
-    { from: "Others2", to: "Web-service", value: 2 },
-    { from: "Others2", to: "Component-based", value: 3 },
+    { from: "Others2", to: "Web-service", value: 1 },
+    { from: "Others2", to: "Component-based", value: 1 },
     { from: "Others2", to: "Other", value: 3 },
     { from: "Web-application", to: "Physical components", value: 2 },
     { from: "Web-application", to: "Model representation", value: 0 },
@@ -125,7 +124,7 @@ chart.data = [
     { from: "Integration-Yes", to: "UnitTesting-Yes", value: 0 },
     { from: "Integration-Yes", to: "UnitTesting-No", value: 13 },
     { from: "Integration-No", to: "UnitTesting-Yes", value: 0 },
-    { from: "Integration-No", to: "UnitTesting-No", value: 2 },
+    { from: "Integration-No", to: "UnitTesting-No", value: 3 },
     { from: "UnitTesting-Yes", to: "IntegrationTesting-Yes", value: 0 },
     { from: "UnitTesting-Yes", to: "IntegrationTesting-No", value: 0 },
     { from: "UnitTesting-No", to: "IntegrationTesting-Yes", value: 7 },
@@ -136,30 +135,32 @@ chart.data = [
     { from: "IntegrationTesting-No", to: "Simulation", value: 4 },
     { from: "IntegrationTesting-No", to: "Small-scale", value: 1 },
     { from: "IntegrationTesting-No", to: "Real-world", value: 1 },
-    { from: "Simulation", to: "T-Scalability", value: 2 },
-    { from: "Simulation", to: "T-Performance", value: 4 },
-    { from: "Simulation", to: "T-Energy efficiency", value: 2 },
-    { from: "Simulation", to: "T-Relaibility", value: 2 },
-    { from: "Small-scale", to: "T-Scalability", value: 2 },
-    { from: "Small-scale", to: "T-Performance", value: 3 },
-    { from: "Small-scale", to: "T-Energy efficiency", value: 1 },
-    { from: "Small-scale", to: "T-Relaibility", value: 1 },
-    { from: "Real-world", to: "T-Scalability", value: 1 },
-    { from: "Real-world", to: "T-Performance", value: 2 },
-    { from: "Real-world", to: "T-Energy efficiency", value: 1 },
-    { from: "Real-world", to: "T-Relaibility", value: 1 },
-    { from: "T-Scalability", to: "Maintenance-Yes", value: 2 },
-    { from: "T-Scalability", to: "Maintenance-No", value: 2 },
-    { from: "T-Performance", to: "Maintenance-Yes", value: 4 },
-    { from: "T-Performance", to: "Maintenance-No", value: 5 },
-    { from: "T-Energy efficiency", to: "Maintenance-Yes", value: 2 },
-    { from: "T-Energy efficiency", to: "Maintenance-No", value: 2 },
-    { from: "T-Relaibility", to: "Maintenance-Yes", value: 4 },
-    { from: "T-Relaibility", to: "Maintenance-No", value: 1 }
+    { from: "Simulation", to: "QC-Scalability", value: 2 },
+    { from: "Simulation", to: "QC-Performance", value: 4 },
+    { from: "Simulation", to: "QC-Energy efficiency", value: 2 },
+    { from: "Simulation", to: "QC-Relaibility", value: 3 },
+    { from: "Small-scale", to: "QC-Scalability", value: 2 },
+    { from: "Small-scale", to: "QC-Performance", value: 3 },
+    { from: "Small-scale", to: "QC-Energy efficiency", value: 0 },
+    { from: "Small-scale", to: "QC-Relaibility", value: 1 },
+    { from: "Real-world", to: "QC-Scalability", value: 1 },
+    { from: "Real-world", to: "QC-Performance", value: 2 },
+    { from: "Real-world", to: "QC-Energy efficiency", value: 1 },
+    { from: "Real-world", to: "QC-Relaibility", value: 1 },
+    { from: "QC-Scalability", to: "Maintenance-Yes", value: 2 },
+    { from: "QC-Scalability", to: "Maintenance-No", value: 2 },
+    { from: "QC-Performance", to: "Maintenance-Yes", value: 4 },
+    { from: "QC-Performance", to: "Maintenance-No", value: 5 },
+    { from: "QC-Energy efficiency", to: "Maintenance-Yes", value: 2 },
+    { from: "QC-Energy efficiency", to: "Maintenance-No", value: 2 },
+    { from: "QC-Relaibility", to: "Maintenance-Yes", value: 4 },
+    { from: "QC-Relaibility", to: "Maintenance-No", value: 1 },
+    { from: "Maintenance-Yes", to: "", value: 0 },
+    { from: "Maintenance-No", to: "", value: 0 }
 ];
 
-//let hoverState = chart.links.template.states.create("hover");
-//hoverState.properties.fillOpacity = 1;
+let hoverState = chart.links.template.states.create("hover");
+hoverState.properties.fillOpacity = 0.6;
 
 var linkTemplate = chart.links.template;
 //linkTemplate.fillOpacity = 0.5;
@@ -207,21 +208,106 @@ nodeTemplate.nameLabel.label.fontWeight = "bold";;
 // nodeTemplate.showSystemTooltip = true;
 // nodeTemplate.cursorOverStyle = am4core.MouseCursorStyle.pointer
 
-// function am4themes_myTheme(target) {
-//     if (target instanceof am4core.ColorSet) {
-//         target.list = [
-//             am4core.color("#5B9BD5"),
-//             am4core.color("#FFC000"),
-//             am4core.color("#ED7D31"),
-//             am4core.color("#70AD47"),
-//             am4core.color("#7C7C7C")
-//             //am4core.color("#4472C4"),
-//             //am4core.color("#3BC2A3")
-//         ];
+function am4themes_myTheme(target) {
+    if (target instanceof am4core.ColorSet) {
+        target.list = [
+            //target.background.fill = am4core.color("#DCCCA3")
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3"),
+            am4core.color("#5B9BD5"),
+            am4core.color("#FFC000"),
+            am4core.color("#ED7D31"),
+            am4core.color("#70AD47"),
+            am4core.color("#7C7C7C"),
+            am4core.color("#4472C4"),
+            am4core.color("#3BC2A3")
+        ];
 
 
-//     }
-//}
+    }
+}
 
 
 chart.exporting.menu = new am4core.ExportMenu();
