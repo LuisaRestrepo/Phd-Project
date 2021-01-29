@@ -165,7 +165,7 @@ hoverState.properties.fillOpacity = 0.6;
 var linkTemplate = chart.links.template;
 //linkTemplate.fillOpacity = 0.5;
 
-chart.orientation = "vertical";
+//chart.orientation = "vertical"; //VERTICAL
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
@@ -175,7 +175,7 @@ chart.dataFields.value = "value";
 chart.minNodeSize = 0.09; // tamaño links
 //chart.nodeAlign = "bottom";
 //chart.paddingLeft = 80;
-//chart.paddingRight = 80;
+chart.paddingRight = 110; //HORIZONTAL
 
 //chart.links.template.propertyFields.id = "id";
 //chart.links.template.colorMode = "fromNode";
@@ -194,12 +194,12 @@ chart.minNodeSize = 0.09; // tamaño links
 
 // make nodes draggable
 var nodeTemplate = chart.nodes.template;
-nodeTemplate.height = 25;
-nodeTemplate.width = 30;
+//nodeTemplate.height = 25;//VERTICAL
+//nodeTemplate.width = 30; //VERTICAL
 nodeTemplate.stroke = am4core.color("#fff");
 nodeTemplate.strokeWidth = 2; // delineado nodes
 nodeTemplate.nameLabel.locationY = 0.5;
-nodeTemplate.nameLabel.label.fill = am4core.color("#fff");
+//nodeTemplate.nameLabel.label.fill = am4core.color("#fff"); //VERTICAL
 nodeTemplate.nameLabel.label.fontWeight = "bold";;
 
 // make nodes draggable
