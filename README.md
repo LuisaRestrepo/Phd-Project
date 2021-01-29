@@ -1,7 +1,7 @@
 # Phd-Project
-[![Downloads Stats][npm-downloads]][npm-url]
 
-#Project name
+## Project name
+
 A Sustainable-development Approach for Self-adaptive Cyber-physical Systems Life Cycle
 
 ## Contact
