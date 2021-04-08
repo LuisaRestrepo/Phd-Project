@@ -20,11 +20,13 @@ am4core.useTheme(am4themes_myTheme);
 
 var chart = am4core.create("chartdiv", am4charts.SankeyDiagram);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
+//chart.legend.labels.template.truncate = false;
+//chart.legend.labels.template.wrap = true;
 
 
 chart.data = [
     { from: "PAPERS", to: "Planning-YES", value: 16 },
+    { from: "PAPERS", to: "Planning-NO", value: 0 },
     { from: "Planning-YES", to: "Dependent", value: 2 },
     { from: "Planning-YES", to: "Independent", value: 14 },
     { from: "Planning-NO", to: "", value: 0 },
@@ -40,33 +42,33 @@ chart.data = [
     { from: "Independent", to: "Maintainability", value: 3 },
     { from: "Independent", to: "Reliability", value: 5 },
     { from: "Independent", to: "Others", value: 3 },
-    { from: "Energy-efficiency", to: "System modeling (UML)", value: 1 },
+    { from: "Energy-efficiency", to: "System UML", value: 1 },
     { from: "Energy-efficiency", to: "Natural language", value: 4 },
-    { from: "Energy-efficiency", to: "Mathematical specification", value: 1 },
-    { from: "Scalability", to: "System modeling (UML)", value: 2 },
+    { from: "Energy-efficiency", to: "Math. specification", value: 1 },
+    { from: "Scalability", to: "System UML", value: 2 },
     { from: "Scalability", to: "Natural language", value: 4 },
-    { from: "Scalability", to: "Mathematical specification", value: 0 },
-    { from: "Performance", to: "System modeling (UML)", value: 4 },
+    { from: "Scalability", to: "Math. specification", value: 0 },
+    { from: "Performance", to: "System UML", value: 4 },
     { from: "Performance", to: "Natural language", value: 9 },
-    { from: "Performance", to: "Mathematical specification", value: 2 },
-    { from: "Maintainability", to: "System modeling (UML)", value: 3 },
+    { from: "Performance", to: "Math. specification", value: 2 },
+    { from: "Maintainability", to: "System UML", value: 3 },
     { from: "Maintainability", to: "Natural language", value: 4 },
-    { from: "Maintainability", to: "Mathematical specification", value: 0 },
-    { from: "Reliability", to: "System modeling (UML)", value: 2 },
+    { from: "Maintainability", to: "Math. specification", value: 0 },
+    { from: "Reliability", to: "System UML", value: 2 },
     { from: "Reliability", to: "Natural language", value: 6 },
-    { from: "Reliability", to: "Mathematical specification", value: 0 },
-    { from: "Others", to: "System modeling (UML)", value: 3 },
+    { from: "Reliability", to: "Math. specification", value: 0 },
+    { from: "Others", to: "System UML", value: 3 },
     { from: "Others", to: "Natural language", value: 4 },
-    { from: "Others", to: "Mathematical specification", value: 1 },
-    { from: "System modeling (UML)", to: "Cyber", value: 7 },
-    { from: "System modeling (UML)", to: "Network", value: 2 },
-    { from: "System modeling (UML)", to: "Physical", value: 0 },
+    { from: "Others", to: "Math. specification", value: 1 },
+    { from: "System UML", to: "Cyber", value: 7 },
+    { from: "System UML", to: "Network", value: 2 },
+    { from: "System UML", to: "Physical", value: 0 },
     { from: "Natural language", to: "Cyber", value: 12 },
     { from: "Natural language", to: "Network", value: 4 },
     { from: "Natural language", to: "Physical", value: 2 },
-    { from: "Mathematical specification", to: "Cyber", value: 1 },
-    { from: "Mathematical specification", to: "Network", value: 0 },
-    { from: "Mathematical specification", to: "Physical", value: 1 },
+    { from: "Math. specification", to: "Cyber", value: 1 },
+    { from: "Math. specification", to: "Network", value: 0 },
+    { from: "Math. specification", to: "Physical", value: 1 },
     { from: "Cyber", to: "Cloud-service", value: 3 },
     { from: "Cyber", to: "Client-server", value: 2 },
     { from: "Cyber", to: "Edge computing", value: 1 },
@@ -165,17 +167,17 @@ hoverState.properties.fillOpacity = 0.6;
 var linkTemplate = chart.links.template;
 //linkTemplate.fillOpacity = 0.5;
 
-//chart.orientation = "vertical"; //VERTICAL
+chart.orientation = "vertical"; //VERTICAL
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
 chart.dataFields.value = "value";
 
 // for right-most label to fit
-chart.minNodeSize = 0.09; // tamaño links
+chart.minNodeSize = 0.15; // tamaño links
 //chart.nodeAlign = "bottom";
 //chart.paddingLeft = 80;
-chart.paddingRight = 110; //HORIZONTAL
+//chart.paddingRight = 110; //HORIZONTAL
 
 //chart.links.template.propertyFields.id = "id";
 //chart.links.template.colorMode = "fromNode";
@@ -192,15 +194,20 @@ chart.paddingRight = 110; //HORIZONTAL
 //chart.links.template.fillOpacity = 0.5;
 
 
+
 // make nodes draggable
 var nodeTemplate = chart.nodes.template;
-//nodeTemplate.height = 25;//VERTICAL
-//nodeTemplate.width = 30; //VERTICAL
+nodeTemplate.height = 30; //VERTICAL
+nodeTemplate.width = 80; //VERTICAL
 nodeTemplate.stroke = am4core.color("#fff");
 nodeTemplate.strokeWidth = 2; // delineado nodes
 nodeTemplate.nameLabel.locationY = 0.5;
-//nodeTemplate.nameLabel.label.fill = am4core.color("#fff"); //VERTICAL
-nodeTemplate.nameLabel.label.fontWeight = "bold";;
+nodeTemplate.nameLabel.label.fill = am4core.color("#fff"); //VERTICAL
+nodeTemplate.nameLabel.label.fontWeight = "bold";
+nodeTemplate.nameLabel.label.truncate = false;
+//nodeTemplate.nameLabel.label.wrap = false;
+
+
 
 // make nodes draggable
 // var nodeTemplate = chart.nodes.template;
